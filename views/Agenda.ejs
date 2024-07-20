@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agenda</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo&family=Roboto:wght@900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/public/Agenda.css">
+</head>
+<body>
+    <div id="title" class="center">
+        <h1>2024</h1>
+        <p>Cycle Annuel de Croissance et de Développement des olives</p>
+    </div>
+
+    <div class="calendar-frame center">
+        <div class="day-frame placeholder"></div>
+        <div class="day-frame placeholder"></div>
+        <% for(let i = 0; i < data.length; i++) { %>
+        <div class="day-frame center real" 
+             data-title="<%= data[i].title %>" 
+             data-time="<%= data[i].date %>" 
+             data-description="<%= data[i].description %>">
+            <h2 class="day-number"><%= data[i].id %></h2>
+            <div class="day-label center"><%= data[i].title %></div>
+        </div>
+        <% } %>
+    </div>
+
+    <!-- Pop-up Modal -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <p id="popup-time"></p>
+            <h2 id="popup-title"></h2>
+            <p id="popup-description"></p>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+</body>
+</html>
